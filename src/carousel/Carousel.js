@@ -1255,7 +1255,7 @@ export default class Carousel extends Component {
             directionalLockEnabled: true,
             pinchGestureEnabled: false,
             scrollsToTop: false,
-            removeClippedSubviews: !this._needsScrollView(),
+            removeClippedSubviews: false,
             inverted: this._needsRTLAdaptations(),
             // renderToHardwareTextureAndroid: true,
             ...specificProps
@@ -1281,7 +1281,7 @@ export default class Carousel extends Component {
                 { height: sliderHeight, flexDirection: 'column' } :
                 // LTR hack; see https://github.com/facebook/react-native/issues/11960
                 // and https://github.com/facebook/react-native/issues/13100#issuecomment-328986423
-                { width: sliderWidth, flexDirection: this._needsRTLAdaptations() ? 'row-reverse' : 'row' }
+                { height: sliderHeight, width: sliderWidth, flexDirection: this._needsRTLAdaptations() ? 'row-reverse' : 'row' }
         ];
         const contentContainerStyle = [
             vertical ? {

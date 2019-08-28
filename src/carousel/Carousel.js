@@ -13,6 +13,7 @@ import {
 } from '../utils/animations';
 
 const IS_IOS = Platform.OS === 'ios';
+const IS_TV = Platform.isTV
 
 // Native driver for scroll events
 // See: https://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html
@@ -755,7 +756,7 @@ export default class Carousel extends Component {
         if (this._needsScrollView()) {
             wrappedRef.scrollTo(options);
         } else {
-            wrappedRef.scrollToOffset(options);
+            !IS_TV && wrappedRef.scrollToOffset(options);
         }
     }
 
